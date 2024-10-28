@@ -5,8 +5,6 @@
 #include <zephyr/drivers/adc.h>
 #include <zephyr/bluetooth/bluetooth.h>
 #include <zephyr/bluetooth/gatt.h>
-#include <stdio.h>   // For sprintf
-#include <stdlib.h>  // For atoi
 
 /* Constants for ADC */
 #define MAX_ADC_VALUE 4095  // Maximum value for 12-bit ADC (2^12 - 1)
@@ -22,36 +20,28 @@ static const struct bt_data ad[] = {
 
 /* Custom GATT Service UUID */
 static struct bt_uuid_128 pot_service_uuid = BT_UUID_INIT_128(
-    0x78, 0x56, 0x34, 0x12, 0x34, 0x12, 0x78, 0x56, 0x34, 0x12, 0x12, 0x34, 0x78, 0x56, 0x34, 0x12);
+    0x00000001, 0x0000, 0x1000, 0x8000, 0x00805F9B34FB);
 
 /* Custom GATT Characteristic UUID */
 static struct bt_uuid_128 pot_char_uuid = BT_UUID_INIT_128(
-    0x21, 0x43, 0x65, 0x87, 0x21, 0x43, 0x65, 0x87, 0x21, 0x43, 0x21, 0x43, 0x65, 0x87, 0x21, 0x43);
+    0x00000002, 0x0000, 0x1000, 0x8000, 0x00805F9B34FB);
 
 /* Potentiometer value buffer */
-static char pot_value_str[4]; // To store percentage as a string, e.g., "100"
-static struct bt_conn *current_conn = NULL;
+static uint8_t pot_value = 0;
 
 /* GATT callback */
 static ssize_t read_pot(struct bt_conn *conn, const struct bt_gatt_attr *attr,
                         void *buf, uint16_t len, uint16_t offset) {
-    return bt_gatt_attr_read(conn, attr, buf, len, offset, pot_value_str, strlen(pot_value_str));
-}
-
-/* Notification callback */
-static void pot_ccc_cfg_changed(const struct bt_gatt_attr *attr, uint16_t value) {
-    bool notif_enabled = (value == BT_GATT_CCC_NOTIFY);
-    LOG_INF("Notifications %s", notif_enabled ? "enabled" : "disabled");
+    return bt_gatt_attr_read(conn, attr, buf, len, offset, &pot_value, sizeof(pot_value));
 }
 
 /* GATT Attributes */
 BT_GATT_SERVICE_DEFINE(pot_svc,
     BT_GATT_PRIMARY_SERVICE(&pot_service_uuid),
     BT_GATT_CHARACTERISTIC(&pot_char_uuid.uuid,
-                           BT_GATT_CHRC_READ | BT_GATT_CHRC_NOTIFY,
+                           BT_GATT_CHRC_READ,
                            BT_GATT_PERM_READ,
-                           read_pot, NULL, pot_value_str),
-    BT_GATT_CCC(pot_ccc_cfg_changed, BT_GATT_PERM_READ | BT_GATT_PERM_WRITE)
+                           read_pot, NULL, &pot_value)
 );
 
 /* Callback for Bluetooth connection */
@@ -60,16 +50,12 @@ static void connected(struct bt_conn *conn, uint8_t err) {
         LOG_ERR("Connection failed (err %u)", err);
     } else {
         LOG_INF("Connected");
-        current_conn = conn;
     }
 }
 
 /* Callback for Bluetooth disconnection */
 static void disconnected(struct bt_conn *conn, uint8_t reason) {
     LOG_INF("Disconnected (reason %u)", reason);
-    if (current_conn == conn) {
-        current_conn = NULL;
-    }
 }
 
 BT_CONN_CB_DEFINE(conn_callbacks) = {
@@ -132,17 +118,8 @@ int main(void) {
         }
 
         /* Convert ADC value to percentage (0 - 100) */
-        uint8_t new_pot_value = (adc_value * 100) / MAX_ADC_VALUE;
-
-        /* Update and send notification if the value has changed */
-        if (new_pot_value != atoi(pot_value_str)) {
-            snprintf(pot_value_str, sizeof(pot_value_str), "%d", new_pot_value);
-            LOG_INF("Potentiometer Value: %s%%", pot_value_str);
-
-            if (current_conn) {
-                bt_gatt_notify(current_conn, &pot_svc.attrs[1], pot_value_str, strlen(pot_value_str));
-            }
-        }
+        pot_value = (adc_value * 100) / MAX_ADC_VALUE;
+        LOG_INF("Potentiometer Value: %d%%", pot_value);
 
         /* Sleep for a while before the next read */
         k_sleep(K_MSEC(500));
