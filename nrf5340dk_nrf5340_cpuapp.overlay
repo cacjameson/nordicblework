@@ -1,0 +1,18 @@
+&pwm0 {
+    status = "okay";
+    pinctrl-0 = <&pwm0_default>;
+    pinctrl-1 = <&pwm0_sleep>;  // Adding second pin control configuration
+    pinctrl-names = "default", "sleep";  // Provide two names as expected
+};
+
+&pwm0_default {
+    group1 {
+        psels = <NRF_PSEL(PWM_OUT0, 0, 28)>, <NRF_PSEL(PWM_OUT1, 0, 29)>; // Configure PWM output on P0.28 and P0.29
+    };
+};
+
+&pwm0_sleep {
+    group1 {
+        psels = <NRF_PSEL(PWM_OUT0, 0, 0)>, <NRF_PSEL(PWM_OUT1, 0, 0)>; // Set to unused or disconnected state for sleep mode
+    };
+};
