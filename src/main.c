@@ -46,6 +46,15 @@ static void set_motor(uint8_t motor_num, uint8_t angle) {
     }
 }
 
+/* Function to initialize both motors */
+static void initialize_motors(void) {
+    LOG_INF("Initializing motors to 90° (center position)");
+
+    // Set both motors to center position
+    set_motor(1, 90);
+    set_motor(2, 90);
+}
+
 /* BLE Write Handlers */
 static ssize_t motor1_write_handler(struct bt_conn *conn,
                                     const struct bt_gatt_attr *attr,
@@ -151,6 +160,9 @@ int main(void)
         return -1;
     }
     LOG_INF("Advertising started");
+
+    /* Initialize both motors */
+    initialize_motors();
 
     LOG_INF("PWM BLE service initialized");
 
