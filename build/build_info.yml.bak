@@ -1,0 +1,22 @@
+cmake:
+  board:
+    name: nrf5340dk
+    path:
+     - C:/ncs/SDKs/v3.0.1/zephyr/boards/nordic/nrf5340dk
+    qualifiers: nrf5340/cpuapp/ns
+    revision: 
+  images:
+   - name: nordicblework
+     source-dir: C:/nordicblework/nordicblework
+     type: MAIN
+  kconfig:
+    files:
+     - C:/nordicblework/nordicblework/build/_sysbuild/empty.conf
+     - C:/nordicblework/nordicblework/build/_sysbuild/empty.conf
+    user-files:
+     - C:/nordicblework/nordicblework/build/_sysbuild/empty.conf
+version: 0.1.0
+west:
+  command: C:\ncs\toolchains\0b393f9e1b\opt\bin\Scripts\west build --build-dir c:/nordicblework/nordicblework/build c:/nordicblework/nordicblework --pristine --board nrf5340dk/nrf5340/cpuapp/ns -- -DCONF_FILE=prj.conf
+  topdir: c:\ncs\SDKs\v3.0.1
+  version: 1.2.0

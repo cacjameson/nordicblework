@@ -1,0 +1,7 @@
+default: nordicblework
+build_dir: C:/nordicblework/nordicblework/build
+domains:
+  - name: nordicblework
+    build_dir: C:/nordicblework/nordicblework/build/nordicblework
+flash_order:
+  - nordicblework
