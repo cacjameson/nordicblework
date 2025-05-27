@@ -1,0 +1,58 @@
+cmake:
+  application:
+    configuration-dir: C:/nordicblework/nordicblework
+    source-dir: C:/nordicblework/nordicblework
+  board:
+    name: nrf5340dk
+    path:
+     - C:/ncs/SDKs/v3.0.1/zephyr/boards/nordic/nrf5340dk
+    qualifiers: nrf5340/cpuapp/ns
+    revision: 
+  devicetree:
+    bindings-dirs:
+     - C:/ncs/SDKs/v3.0.1/nrf/dts/bindings
+     - C:/ncs/SDKs/v3.0.1/zephyr/dts/bindings
+    files:
+     - C:/ncs/SDKs/v3.0.1/zephyr/boards/nordic/nrf5340dk/nrf5340dk_nrf5340_cpuapp_ns.dts
+     - nrf5340dk_nrf5340_cpuapp_ns.overlay
+    include-dirs:
+     - C:/ncs/SDKs/v3.0.1/nrf/include
+     - C:/ncs/SDKs/v3.0.1/nrf/dts/common
+     - C:/ncs/SDKs/v3.0.1/nrf/dts/riscv
+     - C:/ncs/SDKs/v3.0.1/nrf/dts/arm
+     - C:/ncs/SDKs/v3.0.1/nrf/dts
+     - C:/ncs/SDKs/v3.0.1/zephyr/include
+     - C:/ncs/SDKs/v3.0.1/zephyr/include/zephyr
+     - C:/ncs/SDKs/v3.0.1/zephyr/dts/common
+     - C:/ncs/SDKs/v3.0.1/zephyr/dts/x86
+     - C:/ncs/SDKs/v3.0.1/zephyr/dts/xtensa
+     - C:/ncs/SDKs/v3.0.1/zephyr/dts/sparc
+     - C:/ncs/SDKs/v3.0.1/zephyr/dts/riscv
+     - C:/ncs/SDKs/v3.0.1/zephyr/dts/posix
+     - C:/ncs/SDKs/v3.0.1/zephyr/dts/nios2
+     - C:/ncs/SDKs/v3.0.1/zephyr/dts/arm64
+     - C:/ncs/SDKs/v3.0.1/zephyr/dts/arm
+     - C:/ncs/SDKs/v3.0.1/zephyr/dts/arc
+     - C:/ncs/SDKs/v3.0.1/zephyr/dts
+    user-files:
+     - nrf5340dk_nrf5340_cpuapp_ns.overlay
+  images:
+   - name: tfm
+     source-dir: C:/ncs/SDKs/v3.0.1/modules/tee/tf-m/trusted-firmware-m
+  kconfig:
+    files:
+     - C:/ncs/SDKs/v3.0.1/zephyr/boards/nordic/nrf5340dk/nrf5340dk_nrf5340_cpuapp_ns_defconfig
+     - C:/nordicblework/nordicblework/prj.conf
+     - C:/nordicblework/nordicblework/nRF5340-DK_build/nordicblework/zephyr/.config.sysbuild
+    user-files:
+     - prj.conf
+  toolchain:
+    name: zephyr
+    path: C:/ncs/toolchains/0b393f9e1b/opt/zephyr-sdk
+  vendor-specific:
+    nordic:
+      svdfile: C:/ncs/SDKs/v3.0.1/modules/hal/nordic/nrfx/mdk/nrf5340_application.svd
+  zephyr:
+    version: 4.0.99
+    zephyr-base: C:/ncs/SDKs/v3.0.1/zephyr
+version: 0.1.0
