@@ -1,0 +1,7 @@
+default: nordicblework
+build_dir: C:/nordicblework/nordicblework/nRF5340-DK_build
+domains:
+  - name: nordicblework
+    build_dir: C:/nordicblework/nordicblework/nRF5340-DK_build/nordicblework
+flash_order:
+  - nordicblework

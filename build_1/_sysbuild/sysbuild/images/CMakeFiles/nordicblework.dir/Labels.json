@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/nordicblework/nordicblework/build_1/_sysbuild/sysbuild/images/CMakeFiles/nordicblework"
+		},
+		{
+			"file" : "C:/nordicblework/nordicblework/build_1/_sysbuild/sysbuild/images/CMakeFiles/nordicblework.rule"
+		},
+		{
+			"file" : "C:/nordicblework/nordicblework/build_1/_sysbuild/sysbuild/images/CMakeFiles/nordicblework-complete.rule"
+		},
+		{
+			"file" : "C:/nordicblework/nordicblework/build_1/_sysbuild/sysbuild/images/nordicblework-prefix/src/nordicblework-stamp/nordicblework-build.rule"
+		},
+		{
+			"file" : "C:/nordicblework/nordicblework/build_1/_sysbuild/sysbuild/images/nordicblework-prefix/src/nordicblework-stamp/nordicblework-configure.rule"
+		},
+		{
+			"file" : "C:/nordicblework/nordicblework/build_1/_sysbuild/sysbuild/images/nordicblework-prefix/src/nordicblework-stamp/nordicblework-download.rule"
+		},
+		{
+			"file" : "C:/nordicblework/nordicblework/build_1/_sysbuild/sysbuild/images/nordicblework-prefix/src/nordicblework-stamp/nordicblework-install.rule"
+		},
+		{
+			"file" : "C:/nordicblework/nordicblework/build_1/_sysbuild/sysbuild/images/nordicblework-prefix/src/nordicblework-stamp/nordicblework-mkdir.rule"
+		},
+		{
+			"file" : "C:/nordicblework/nordicblework/build_1/_sysbuild/sysbuild/images/nordicblework-prefix/src/nordicblework-stamp/nordicblework-patch.rule"
+		},
+		{
+			"file" : "C:/nordicblework/nordicblework/build_1/_sysbuild/sysbuild/images/nordicblework-prefix/src/nordicblework-stamp/nordicblework-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"nordicblework"
+		],
+		"name" : "nordicblework"
+	}
+}

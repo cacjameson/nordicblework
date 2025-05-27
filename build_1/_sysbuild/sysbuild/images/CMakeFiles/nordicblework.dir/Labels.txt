@@ -1,0 +1,13 @@
+# Target labels
+ nordicblework
+# Source files and their labels
+C:/nordicblework/nordicblework/build_1/_sysbuild/sysbuild/images/CMakeFiles/nordicblework
+C:/nordicblework/nordicblework/build_1/_sysbuild/sysbuild/images/CMakeFiles/nordicblework.rule
+C:/nordicblework/nordicblework/build_1/_sysbuild/sysbuild/images/CMakeFiles/nordicblework-complete.rule
+C:/nordicblework/nordicblework/build_1/_sysbuild/sysbuild/images/nordicblework-prefix/src/nordicblework-stamp/nordicblework-build.rule
+C:/nordicblework/nordicblework/build_1/_sysbuild/sysbuild/images/nordicblework-prefix/src/nordicblework-stamp/nordicblework-configure.rule
+C:/nordicblework/nordicblework/build_1/_sysbuild/sysbuild/images/nordicblework-prefix/src/nordicblework-stamp/nordicblework-download.rule
+C:/nordicblework/nordicblework/build_1/_sysbuild/sysbuild/images/nordicblework-prefix/src/nordicblework-stamp/nordicblework-install.rule
+C:/nordicblework/nordicblework/build_1/_sysbuild/sysbuild/images/nordicblework-prefix/src/nordicblework-stamp/nordicblework-mkdir.rule
+C:/nordicblework/nordicblework/build_1/_sysbuild/sysbuild/images/nordicblework-prefix/src/nordicblework-stamp/nordicblework-patch.rule
+C:/nordicblework/nordicblework/build_1/_sysbuild/sysbuild/images/nordicblework-prefix/src/nordicblework-stamp/nordicblework-update.rule
